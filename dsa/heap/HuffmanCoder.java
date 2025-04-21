@@ -38,6 +38,18 @@ public class HuffmanCoder {
             } else {
                 fmap.put(cc, 1);
             }
+            // if (cc == 'a') {
+            //     fmap.put(cc, 60);
+            // }
+            // if (cc == 'b') {
+            //     fmap.put(cc, 30);
+            // }
+            // if (cc == 'c') {
+            //     fmap.put(cc, 8);
+            // }
+            // if (cc == 'd') {
+            //     fmap.put(cc, 2);
+            // }
         }
 
         Heap<Node> minHeap = new Heap<>();
@@ -45,16 +57,24 @@ public class HuffmanCoder {
 
         for (Map.Entry<Character, Integer> entry : entrySet) {
             Node node = new Node(entry.getKey(), entry.getValue());
+            // System.out.println(node.data + " " + node.cost);
             minHeap.insert(node);
         }
-
+        // int h = 3;
+        // while (h >= 0) {
+        //     System.out.println("Heap value :" + minHeap.getValue(h).data);
+        //     h--;
+        // }
         while (minHeap.size() != 1) {
             Node first = minHeap.remove();
             Node second = minHeap.remove();
+            // System.out.println(first.data);
+            // System.out.println(second.data);
 
             Node newNode = new Node('\0', first.cost + second.cost);
             newNode.left = first;
             newNode.right = second;
+            // System.out.println(newNode.cost + " " + newNode.right.cost + " " + newNode.left.cost);
 
             minHeap.insert(newNode);
         }
@@ -74,8 +94,10 @@ public class HuffmanCoder {
         if (node.left == null && node.right == null) {
             this.encoder.put(node.data, osf);
             this.decoder.put(osf, node.data);
+            return;
         }
         initEncoderDecoder(node.left, osf + "0");
+        // System.out.println(" " + osf);
         initEncoderDecoder(node.right, osf + "1");
     }
 

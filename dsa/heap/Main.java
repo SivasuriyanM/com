@@ -8,6 +8,9 @@ class Main {
         System.out.println(cs);
         String dc = hf.decode(cs);
         System.out.println(dc);
+        // ArrayList<Integer> list = new ArrayList<>();
+        // list.add(1);
+        // System.out.println(list.size());
 
     }
 }

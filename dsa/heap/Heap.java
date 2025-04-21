@@ -19,7 +19,6 @@ public class Heap<T extends Comparable<T>> {
     }
 
     private void upheap(int index) {
-
         if (index == 0) {
             return;
         }
@@ -96,6 +95,10 @@ public class Heap<T extends Comparable<T>> {
             data.add(this.remove());
         }
         return data;
+    }
+
+    public T getValue(int index) {
+        return list.get(index);
     }
 
 }
