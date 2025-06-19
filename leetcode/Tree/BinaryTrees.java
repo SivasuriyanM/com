@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
+import javax.swing.tree.Node;
+
 public class BinaryTrees {
 
     public static Node root;
@@ -416,4 +418,15 @@ public class BinaryTrees {
         }
         return true;
     }
+    // isSymentric using recurison (More efficient)
+    
+    public boolean isSymmetric(Node root) {
+        return (root == null) || Symmetrichelp(root.left,root.right);
+    }
+    public boolean Symmetrichelp(Node left, Node right){
+        if(left == null || right == null) return left == right;
+        if(left.val != right.val) return false;
+        return Symmetrichelp(left.left,right.right) && Symmetrichelp(left.right,right.left);
+    }
+    
 }
